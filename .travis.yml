@@ -4,7 +4,7 @@ service:
 before_install:
   - docker build -t bvijaycom/travis:v1.0 .
 script:
- - echo "docker_password" | docker login -u "$docker_username" --password-stdin
+ - echo "$docker_password" | docker login -u "$docker_username" --password-stdin
  - docker images # to verify image is build or not
  - docker push bvijaycom/travis:v1.0
 notifications:
